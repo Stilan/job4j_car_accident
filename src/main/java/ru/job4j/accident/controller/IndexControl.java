@@ -1,20 +1,19 @@
-package ru.job4j.accident.config;
+package ru.job4j.accident.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.ArrayList;
-import java.util.List;
+import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.repository.AccidentMem;
+import java.util.Collection;
 
 @Controller
 public class IndexControl {
 
     @GetMapping("/")
     public String index(Model model) {
-        List<String> list = new ArrayList<>();
-        list.add("Petr Arsentev");
-        list.add("Pob");
+        AccidentMem.instOf().save(new Accident("Вася", "Дтп", "Ленина 12"));
+        Collection<Accident> list =  AccidentMem.instOf().findByAll();
         model.addAttribute("users", list);
         return "index";
     }
