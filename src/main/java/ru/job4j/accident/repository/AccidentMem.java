@@ -10,14 +10,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Repository
 public class AccidentMem {
 
-    private static final AccidentMem INST = new AccidentMem();
-
     private static final AtomicInteger ACCIDENTS_ID = new AtomicInteger();
 
-    HashMap<Integer, Accident> accidents = new HashMap<>();
+   private HashMap<Integer, Accident> accidents = new HashMap<>();
 
-    public static AccidentMem instOf() {
-        return INST;
+    public AccidentMem() {
+        accidents.put(1, new Accident("Вася", "Дтп", "Ленина 12"));
+        accidents.put(2, new Accident("Федя", "Дтп", "Ленина 13"));
+        accidents.put(3, new Accident("Коля", "Дтп", "Ленина 14"));
     }
 
     public void save(Accident accident) {
