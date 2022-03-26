@@ -1,4 +1,4 @@
-package ru.job4j.accident.controller;
+package ru.job4j.accident.control;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

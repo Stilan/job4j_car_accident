@@ -22,6 +22,15 @@
     <title>Accident</title>
 </head>
 <body>
+<div class="container">
+    <div class="row">
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="<c:url value='/create'/>">Добавить инцидент</a>
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="container pt-3">
 <div class="row">
     <div class="card" style="width: 100%">
@@ -35,6 +44,7 @@
                     <th scope="col">Имя</th>
                     <th>Текст</th>
                     <th>Адрес</th>
+                    <th>Редоктировать</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,6 +58,10 @@
                         </td>
                         <td>
                             <c:out value="${user.address}"/>
+                        </td>
+                        <td>
+                            <a href="<c:url value='/edit?id=${user.id}'/>">
+                                <i class="fa fa-edit mr-3"></i></a>
                         </td>
                     </tr>
                 </c:forEach>

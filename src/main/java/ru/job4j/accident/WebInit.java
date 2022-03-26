@@ -16,6 +16,12 @@ public class WebInit implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ac = new AnnotationConfigWebApplicationContext();
         ac.register(WebConfig.class);
         ac.refresh();
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        filter.setForceEncoding(true);
+        filter.setForceRequestEncoding(true);
+        FilterRegistration.Dynamic encoding = servletCxt.addFilter("encoding", filter);
+        encoding.addMappingForUrlPatterns(null, false, "/*");
         DispatcherServlet servlet = new DispatcherServlet(ac);
         ServletRegistration.Dynamic registration = servletCxt.addServlet("app", servlet);
         registration.setLoadOnStartup(1);

@@ -15,16 +15,16 @@ public class AccidentMem {
    private HashMap<Integer, Accident> accidents = new HashMap<>();
 
     public AccidentMem() {
-        accidents.put(1, new Accident("Вася", "Дтп", "Ленина 12"));
-        accidents.put(2, new Accident("Федя", "Дтп", "Ленина 13"));
-        accidents.put(3, new Accident("Коля", "Дтп", "Ленина 14"));
+
     }
 
     public void save(Accident accident) {
         if (accident.getId() == 0) {
             accident.setId(ACCIDENTS_ID.incrementAndGet());
+            accidents.put(accident.getId(), accident);
+        } else {
+            accidents.replace(accident.getId(), accident);
         }
-        accidents.put(accident.getId(), accident);
     }
 
     public Collection<Accident> findByAll() {
@@ -34,4 +34,6 @@ public class AccidentMem {
     public Accident findById(int id) {
         return accidents.get(id);
     }
+
+
 }
