@@ -44,6 +44,7 @@
                     <th scope="col">Имя</th>
                     <th>Текст</th>
                     <th>Адрес</th>
+                    <th>Тип</th>
                     <th>Редактировать</th>
                 </tr>
                 </thead>
@@ -58,6 +59,9 @@
                         </td>
                         <td>
                             <c:out value="${user.address}"/>
+                        </td>
+                        <td>
+                            <c:out value="${user.type}"/>
                         </td>
                         <td>
                             <a href="<c:url value='/edit?id=${user.id}'/>">
