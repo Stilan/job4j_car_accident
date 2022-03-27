@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<form action="<c:url value='/redact'/>" method='POST'>
+<form action="<c:url value='/save?id=${user.id}'/>" method='POST'>
     <table>
         <tr>
             <td>Имя:</td>
