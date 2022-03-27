@@ -44,7 +44,7 @@
                     <th scope="col">Имя</th>
                     <th>Текст</th>
                     <th>Адрес</th>
-                    <th>Редоктировать</th>
+                    <th>Редактировать</th>
                 </tr>
                 </thead>
                 <tbody>

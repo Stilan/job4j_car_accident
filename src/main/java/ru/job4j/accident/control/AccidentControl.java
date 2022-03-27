@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.repository.AccidentMem;
+import ru.job4j.accident.service.AccidentService;
 
 @Controller
 public class AccidentControl {
-    private final AccidentMem accidents;
+    private final AccidentService accidents;
 
-    public AccidentControl(AccidentMem accidents) {
+    public AccidentControl(AccidentService accidents) {
         this.accidents = accidents;
     }
 
