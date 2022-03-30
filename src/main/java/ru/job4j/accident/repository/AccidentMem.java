@@ -29,8 +29,8 @@ public class AccidentMem {
 
     public void save(Accident accident, String[] ids) {
         Set<Rule> ruleSet = new HashSet<>();
-        for (int i = 0; i < ids.length; i++) {
-            ruleSet.add(findByRuleId(Integer.parseInt(ids[i])));
+        for (String str: ids) {
+            ruleSet.add(findByRuleId(Integer.parseInt(str)));
         }
         accident.setRules(ruleSet);
         if (accident.getId() == 0) {
