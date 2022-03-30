@@ -61,7 +61,7 @@
                             <c:out value="${user.address}"/>
                         </td>
                         <td>
-                            <c:out value="${user.type}"/>
+                            <c:out value="${user.accidentType.name}"/>
                         </td>
                         <td>
                             <a href="<c:url value='/edit?id=${user.id}'/>">
