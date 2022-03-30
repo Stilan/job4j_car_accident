@@ -45,6 +45,7 @@
                     <th>Текст</th>
                     <th>Адрес</th>
                     <th>Тип</th>
+                    <th>Статьи</th>
                     <th>Редактировать</th>
                 </tr>
                 </thead>
@@ -62,6 +63,11 @@
                         </td>
                         <td>
                             <c:out value="${user.accidentType.name}"/>
+                        </td>
+                        <td>
+                            <c:forEach items="${user.rules}" var="rules">
+                                <c:out value="${rules.name}"/>
+                            </c:forEach>
                         </td>
                         <td>
                             <a href="<c:url value='/edit?id=${user.id}'/>">

@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.AccidentMem;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -19,8 +21,8 @@ public class AccidentService {
         return accidentMem.findByAll();
     }
 
-    public void save(Accident accident) {
-        accidentMem.save(accident);
+    public void save(Accident accident, String[] ids) {
+        accidentMem.save(accident, ids);
     }
 
     public Accident findById(int id) {
@@ -32,5 +34,9 @@ public class AccidentService {
     }
     public AccidentType findByTypeId(int id) {
         return accidentMem.findByTypeId(id);
+    }
+
+    public List<Rule> findByRuleAll() {
+        return accidentMem.findByRuleAll();
     }
 }
