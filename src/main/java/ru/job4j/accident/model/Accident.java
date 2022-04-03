@@ -19,6 +19,9 @@ public class Accident {
         this.rules = rules;
     }
 
+    public Accident() {
+    }
+
     public int getId() {
         return id;
     }
