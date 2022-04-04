@@ -36,6 +36,7 @@ public class AccidentJdbcTemplate {
                 accident.getAddress(),
                 accident.getAccidentType().getId(),
                 accident.getId());
+        jdbc.update("delete from accident_rules where accident_id = ?", accident.getId());
         saveRulesInAccident(accident, accident.getId());
     }
 

@@ -39,4 +39,8 @@ public class AccidentJdbcTemplateService {
     public Accident findByAccidentId(int id) {
         return accidentJdbcTemplate.findByAccidentId(id);
     }
+
+    public List<Accident> getAll() {
+        return accidentJdbcTemplate.getAll();
+    }
 }
