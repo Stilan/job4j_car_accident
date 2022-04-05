@@ -7,11 +7,10 @@ import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.AccidentMem;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-@Service
+
 public class AccidentService {
 
     @Autowired

@@ -10,7 +10,7 @@ import ru.job4j.accident.repository.AccidentJdbcTemplate;
 import java.util.List;
 import java.util.Set;
 
-@Service
+
 public class AccidentJdbcTemplateService {
 
     @Autowired

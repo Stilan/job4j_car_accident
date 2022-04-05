@@ -39,6 +39,7 @@ CREATE TABLE  accident_rules (
     rule_id int references rules(id) NOT NULL
 );
 
+insert into accident_rules(accident_id, rule_id) VALUES(1, 1);
 select * from accident_rules;
 select * from accident;
 select * from accident_type;
