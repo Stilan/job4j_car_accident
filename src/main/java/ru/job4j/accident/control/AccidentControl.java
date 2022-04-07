@@ -13,6 +13,7 @@ import ru.job4j.accident.repository.AccidentJdbcTemplate;
 import ru.job4j.accident.service.AccidentJdbcTemplateService;
 import ru.job4j.accident.service.AccidentService;
 import ru.job4j.accident.service.AccidentServiceHibernate;
+import ru.job4j.accident.service.AccidentServiceSpringDate;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,24 +22,23 @@ import javax.servlet.http.HttpServletRequest;
 public class AccidentControl {
 
     @Autowired
-    private final AccidentServiceHibernate accidents;
+    private final AccidentServiceSpringDate accidents;
 
-    public AccidentControl(AccidentServiceHibernate accidents) {
+    public AccidentControl(AccidentServiceSpringDate accidents) {
         this.accidents = accidents;
     }
 
     @GetMapping("/edit")
     public String edit(@RequestParam("id") int id, Model model) {
-        model.addAttribute("user", accidents.findByAccidentId(id));
-        model.addAttribute("rules", accidents.findByRuleAll());
-        model.addAttribute("types", accidents.findByTypeAll());
+        model.addAttribute("user", accidents.getAccidentById(id));
+        model.addAttribute("rules", accidents.getRulesBy());
+        model.addAttribute("types", accidents.getAccidentTypesBy());
         return "accident/edit";
     }
 
     @PostMapping("/save")
     public String save(@ModelAttribute Accident accident, @RequestParam("type.id") int id, HttpServletRequest req) {
-        System.out.println(accidents.findByAccidentTypeId(id));
-        accident.setAccidentType(accidents.findByAccidentTypeId(id));
+        accident.setAccidentType(accidents.getAccidentTypeById(id));
         String[] ids = req.getParameterValues("rIds");
         accident.setRules(accidents.findRulesByIds(ids));
         accidents.save(accident);
@@ -47,8 +47,8 @@ public class AccidentControl {
 
     @GetMapping("/create")
     public String create(Model model) {
-        model.addAttribute("rules", accidents.findByRuleAll());
-        model.addAttribute("types", accidents.findByTypeAll());
+        model.addAttribute("rules", accidents.getRulesBy());
+        model.addAttribute("types", accidents.getAccidentTypesBy());
         return "accident/create";
     }
 
