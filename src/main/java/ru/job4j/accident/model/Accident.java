@@ -19,7 +19,7 @@ public class Accident {
     @ManyToOne
     private AccidentType type;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.MERGE})
     @JoinTable(
             name = "accident_rules",
             joinColumns = { @JoinColumn(name = "accident_id") },
@@ -89,6 +89,7 @@ public class Accident {
     public void setRules(Set<Rule> rules) {
         this.rules = rules;
     }
+
 
     @Override
     public boolean equals(Object o) {

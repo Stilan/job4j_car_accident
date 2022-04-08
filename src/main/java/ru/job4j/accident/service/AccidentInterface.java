@@ -9,7 +9,6 @@ import java.util.Set;
 
 public interface AccidentInterface {
 
-    List<Accident> getAccidentsBy();
     void save(Accident accident);
     Accident getAccidentById(int id);
     List<Rule> getRulesBy();

@@ -1,7 +1,5 @@
 package ru.job4j.accident.service;
 
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
@@ -17,11 +15,9 @@ import java.util.Set;
 
 @Service
 public class AccidentServiceSpringDate implements AccidentInterface {
-    @Autowired
+
     private AccidentRepository accidentRepository;
-    @Autowired
     private AccidentTypeRepository accidentType;
-    @Autowired
     private AccidentRuleRepository accidentRule;
 
     public AccidentServiceSpringDate(AccidentRepository accidentRepository,
@@ -29,13 +25,6 @@ public class AccidentServiceSpringDate implements AccidentInterface {
         this.accidentRepository = accidentRepository;
         this.accidentType = accidentType;
         this.accidentRule = accidentRule;
-    }
-
-    @Override
-    public List<Accident> getAccidentsBy() {
-        List<Accident> list = new ArrayList<>();
-        accidentRepository.findAll().forEach(list::add);
-        return list;
     }
 
     @Override
@@ -80,4 +69,5 @@ public class AccidentServiceSpringDate implements AccidentInterface {
         }
         return rsl;
     }
+
 }
