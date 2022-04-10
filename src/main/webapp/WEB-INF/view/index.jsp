@@ -28,6 +28,11 @@
             <li class="nav-item">
                 <a href="<c:url value='/create'/>">Добавить инцидент</a>
             </li>
+            <li>
+                <div>
+                    Login as : ${user.username}
+                </div>
+            </li>
         </ul>
     </div>
 </div>

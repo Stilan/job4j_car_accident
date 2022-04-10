@@ -39,6 +39,19 @@ CREATE TABLE  accident_rules (
     rule_id int references rules(id) NOT NULL
 );
 
+CREATE TABLE users (
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  enabled boolean default true,
+  PRIMARY KEY (username)
+);
+
+CREATE TABLE authorities (
+  username VARCHAR(50) NOT NULL,
+  authority VARCHAR(50) NOT NULL,
+  FOREIGN KEY (username) REFERENCES users(username)
+);
+
 insert into accident_rules(accident_id, rule_id) VALUES(1, 1);
 select * from accident_rules;
 select * from accident;
